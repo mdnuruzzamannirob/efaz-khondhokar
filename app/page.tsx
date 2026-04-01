@@ -38,11 +38,11 @@ export default function Home() {
 
       {/* Grid background */}
       <div
-        className="absolute inset-0 opacity-5 dark:opacity-10 pointer-events-none"
+        className="absolute inset-0 opacity-30 dark:opacity-100 pointer-events-none"
         style={{
           backgroundImage:
-            'linear-gradient(0deg, transparent 24%, rgba(255, 0, 0, 0.05) 25%, rgba(255, 0, 0, 0.05) 26%, transparent 27%, transparent 74%, rgba(255, 0, 0, 0.05) 75%, rgba(255, 0, 0, 0.05) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(255, 0, 0, 0.05) 25%, rgba(255, 0, 0, 0.05) 26%, transparent 27%, transparent 74%, rgba(255, 0, 0, 0.05) 75%, rgba(255, 0, 0, 0.05) 76%, transparent 77%, transparent)',
-          backgroundSize: '50px 50px',
+            'linear-gradient(0deg, transparent 24%, rgba(120, 120, 120, 0.15) 25%, rgba(120, 120, 120, 0.15) 26%, transparent 27%, transparent 74%, rgba(120, 120, 120, 0.15) 75%, rgba(120, 120, 120, 0.15) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(120, 120, 120, 0.15) 25%, rgba(120, 120, 120, 0.15) 26%, transparent 27%, transparent 74%, rgba(120, 120, 120, 0.15) 75%, rgba(120, 120, 120, 0.15) 76%, transparent 77%, transparent)',
+          backgroundSize: '150px 150px',
         }}
       ></div>
 
@@ -57,7 +57,7 @@ export default function Home() {
         <div className="relative mb-8 inline-block">
           <GlitchText
             text="I'M ADENEKEN WONDERFUL"
-            className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tighter leading-tight"
+            className="text-2xl sm:text-3xl lg:text-4xl font-medium tracking-[0.29em] leading-tight"
           />
         </div>
 
@@ -66,7 +66,7 @@ export default function Home() {
           variants={itemVariants}
           className="max-w-3xl space-y-6 mb-12"
         >
-          <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+          <p className=" leading-8.75 text-gray-700 dark:text-gray-300">
             Your friendly neighborhood frontend developer, UX architect, and
             JavaScript engineer. I spend my days (and often nights) painting the
             internet canvas with{' '}
@@ -77,7 +77,7 @@ export default function Home() {
             interactive experiences.
           </p>
 
-          <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+          <p className="leading-8.75 text-gray-700 dark:text-gray-300">
             Bona fide photochromic{' '}
             <span className="font-semibold text-gray-900 dark:text-white">
               LENS
