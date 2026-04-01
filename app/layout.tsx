@@ -1,4 +1,3 @@
-import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 import { ThemeProvider } from '@/components/ThemeProvider'
 import type { Metadata } from 'next'
@@ -35,7 +34,6 @@ export default function RootLayout({
         <ThemeProvider>
           <Header />
           <main className="flex-1 relative z-10">{children}</main>
-          <Footer />
         </ThemeProvider>
       </body>
     </html>

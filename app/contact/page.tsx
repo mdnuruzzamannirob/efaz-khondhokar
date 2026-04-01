@@ -52,7 +52,7 @@ const itemVariants = {
 
 export default function Contact() {
   return (
-    <div className="min-h-screen pt-24 pb-16 flex flex-col">
+    <div className="pt-32 pb-10 flex flex-col">
       <motion.div
         variants={containerVariants}
         initial="hidden"

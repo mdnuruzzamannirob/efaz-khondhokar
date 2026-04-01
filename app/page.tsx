@@ -27,7 +27,7 @@ const itemVariants = {
 
 export default function Home() {
   return (
-    <div className="min-h-[calc(100vh-68px)] pt-20 pb-16 flex flex-col relative overflow-hidden">
+    <div className="pt-32 pb-10 flex flex-col relative overflow-hidden">
       {/* Main Content */}
       <motion.div
         variants={containerVariants}

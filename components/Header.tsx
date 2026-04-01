@@ -21,7 +21,7 @@ export function Header() {
   }, [])
 
   return (
-    <header className="w-full z-50 container-header py-4 flex items-center justify-between">
+    <header className="w-full z-50 container-header py-8 flex items-center justify-between">
       {/* Logo */}
       <div className="text-2xl font-bold text-foreground">
         <Link href="/">Efaz.dev</Link>
