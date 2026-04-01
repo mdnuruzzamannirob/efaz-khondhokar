@@ -1,5 +1,6 @@
 'use client'
 
+import { Footer } from '@/components/Footer'
 import { GlitchText } from '@/components/GlitchText'
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
@@ -49,27 +50,47 @@ export default function Home() {
             Your friendly neighborhood frontend developer, UX architect, and
             JavaScript engineer. I spend my days (and often nights) painting the
             internet canvas with{' '}
-            <span className="font-semibold text-foreground">PROJECTS</span> and
-            lines of code, turning zeroes and ones into immersive, interactive
-            experiences.
+            <Link
+              href="/projects"
+              className="font-semibold text-foreground hover:underline hover:opacity-70 transition-all"
+            >
+              PROJECTS
+            </Link>{' '}
+            and lines of code, turning zeroes and ones into immersive,
+            interactive experiences.
           </p>
 
           <p className="leading-8.75">
             Bona fide photochromic{' '}
-            <span className="font-semibold text-foreground">LENS</span>{' '}
+            <Link
+              href="/about"
+              className="font-semibold text-foreground hover:underline hover:opacity-70 transition-all"
+            >
+              LENS
+            </Link>{' '}
             enthusiast – sunlight or indoors, I&apos;ve got it covered. I tread
             the path of minimalism, finding beauty in simplicity and order. When
             I&apos;m not crafting beautiful web experiences, you can find me
             reading{' '}
-            <span className="font-semibold text-foreground">ARTICLES</span> or
-            swaying to the rhythm of Pop Music & Jazz, losing myself in the
+            <Link
+              href="/blog"
+              className="font-semibold text-foreground hover:underline hover:opacity-70 transition-all"
+            >
+              ARTICLES
+            </Link>{' '}
+            or swaying to the rhythm of Pop Music & Jazz, losing myself in the
             captivating flow of melodies. anyways you can{' '}
-            <span className="font-semibold text-foreground">CONTACT ME</span>
+            <Link
+              href="/contact"
+              className="font-semibold text-foreground hover:underline hover:opacity-70 transition-all"
+            >
+              CONTACT ME
+            </Link>
           </p>
         </motion.div>
 
         {/* CTA Link */}
-        <motion.div variants={itemVariants}>
+        <motion.div variants={itemVariants} className="mb-16">
           <Link
             href="/about"
             className="inline-flex items-center gap-2 text-foreground hover:gap-4 transition-all duration-300 font-medium group"
@@ -80,6 +101,11 @@ export default function Home() {
               className="group-hover:translate-x-1 transition-transform"
             />
           </Link>
+        </motion.div>
+
+        {/* Footer */}
+        <motion.div variants={itemVariants}>
+          <Footer />
         </motion.div>
       </motion.div>
     </div>

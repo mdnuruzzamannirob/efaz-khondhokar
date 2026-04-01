@@ -19,9 +19,11 @@ const socialLinks = [
   { icon: Instagram, href: 'https://instagram.com', label: 'Instagram' },
 ]
 
-export function Footer() {
+export function Footer({ className }: { className?: string }) {
   return (
-    <footer className="flex justify-center items-center gap-6 py-8 px-4">
+    <footer
+      className={`flex justify-normal items-center gap-6 py-8 px-4 ${className}`}
+    >
       {socialLinks.map((social, idx) => {
         const Icon = social.icon
         return (
