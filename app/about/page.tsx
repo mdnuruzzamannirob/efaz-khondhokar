@@ -149,13 +149,13 @@ export default function About() {
               className="flex gap-6 mb-12"
               variants={itemVariants}
             >
-              {/* Timeline Dot and Line */}
+              {/* Timeline Dot */}
               <div className="flex flex-col items-center pt-1">
-                <div className="w-6 h-6 rounded-full border-2 border-foreground flex items-center justify-center text-xs font-semibold shrink-0">
-                  <span className="text-foreground/60">{skill.icon}</span>
+                <div className="w-6 h-6 rounded-full border-2 border-foreground flex items-center justify-center shrink-0">
+                  <div className="w-2 h-2 rounded-full bg-foreground" />
                 </div>
                 {idx < skills.length - 1 && (
-                  <div className="w-0.5 h-32 bg-linear-to-b from-foreground/20 to-transparent my-4" />
+                  <div className="w-0.5 h-32 bg-linear-to-b from-foreground/20  to-transparent my-4" />
                 )}
               </div>
 
@@ -194,7 +194,7 @@ export default function About() {
                     <div className="w-2 h-2 rounded-full bg-foreground" />
                   </div>
                   {idx < reads.length - 1 && (
-                    <div className="w-0.5 h-32 bg-linear-to-b from-foreground/20 to-transparent my-4" />
+                    <div className="w-0.5 h-32 bg-linear-to-b from-foreground/20 to-transparent  my-4" />
                   )}
                 </div>
 
@@ -236,7 +236,7 @@ export default function About() {
                     <div className="w-2 h-2 rounded-full bg-foreground" />
                   </div>
                   {idx < playlists.length - 1 && (
-                    <div className="w-0.5 h-24 bg-linear-to-b from-foreground/20 to-transparent my-4" />
+                    <div className="w-0.5 h-24 bg-linear-to-b from-foreground/20 to-transparent  my-4" />
                   )}
                 </div>
 
