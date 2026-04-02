@@ -135,12 +135,20 @@ export default function Projects() {
         animate="visible"
         className="flex-1 container-body flex flex-col"
       >
-        <motion.h1
+        <motion.div variants={itemVariants} className="mb-4">
+          <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl lg:text-6xl">
+            Projects.
+          </h1>
+        </motion.div>
+
+        <motion.p
           variants={itemVariants}
-          className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tighter mb-10"
+          className="mb-14 max-w-2xl leading-8 text-foreground/75"
         >
-          Projects.
-        </motion.h1>
+          A selection of projects, tools, and experiments that I&apos;ve built,
+          contributed to, or find inspiring in the web development and design
+          space.
+        </motion.p>
 
         <motion.div
           variants={itemVariants}

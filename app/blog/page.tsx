@@ -1,10 +1,12 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, type Variants } from 'framer-motion'
+import Image from 'next/image'
 import Link from 'next/link'
 import {
   FaArrowRight,
-  FaCalendar,
+  FaCalendarAlt,
+  FaClock,
   FaEnvelope,
   FaGithub,
   FaInstagram,
@@ -22,6 +24,8 @@ const blogPosts = [
     readTime: '5 min read',
     category: 'Tutorial',
     slug: 'getting-started-framer-motion',
+    image:
+      'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80',
   },
   {
     id: 2,
@@ -32,6 +36,8 @@ const blogPosts = [
     readTime: '8 min read',
     category: 'Performance',
     slug: 'building-performant-web-apps',
+    image:
+      'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80',
   },
   {
     id: 3,
@@ -42,6 +48,8 @@ const blogPosts = [
     readTime: '6 min read',
     category: 'Design',
     slug: 'minimalist-web-design',
+    image:
+      'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80',
   },
   {
     id: 4,
@@ -52,6 +60,8 @@ const blogPosts = [
     readTime: '7 min read',
     category: 'Development',
     slug: 'typescript-tips-tricks',
+    image:
+      'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80',
   },
   {
     id: 5,
@@ -62,6 +72,8 @@ const blogPosts = [
     readTime: '9 min read',
     category: 'Framework',
     slug: 'nextjs-16-features',
+    image:
+      'https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?auto=format&fit=crop&w=1200&q=80',
   },
   {
     id: 6,
@@ -72,28 +84,10 @@ const blogPosts = [
     readTime: '10 min read',
     category: 'Accessibility',
     slug: 'accessible-web-apps',
+    image:
+      'https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=1200&q=80',
   },
 ]
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.2,
-    },
-  },
-}
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8 },
-  },
-}
 
 const socialLinks = [
   { icon: FaTwitter, href: 'https://twitter.com', label: 'Twitter' },
@@ -103,115 +97,143 @@ const socialLinks = [
   { icon: FaInstagram, href: 'https://instagram.com', label: 'Instagram' },
 ]
 
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.16,
+      delayChildren: 0.2,
+    },
+  },
+}
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.7,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+}
+
 export default function Blog() {
   return (
-    <div className="pt-32 pb-10 flex flex-col">
-      <motion.div
+    <div className="relative overflow-hidden pt-32 pb-20">
+      <motion.section
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="flex-1 container-body flex flex-col"
+        className="container-body flex min-h-[calc(100vh-8rem)] flex-col"
       >
-        {/* Title */}
-        <motion.h1
-          variants={itemVariants}
-          className="text-5xl sm:text-6xl font-bold tracking-tighter mb-4"
-        >
-          Blog
-        </motion.h1>
+        <motion.div variants={itemVariants} className="mb-4">
+          <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl lg:text-6xl">
+            Blog.
+          </h1>
+        </motion.div>
 
         <motion.p
           variants={itemVariants}
-          className="text-lg text-foreground/80 mb-12"
+          className="mb-14 max-w-2xl leading-8 text-foreground/75"
         >
-          Thoughts on web development, design, and technology.
+          Thoughts, experiments, and reflections on web development, design,
+          performance, and the tools I enjoy building with.
         </motion.p>
 
-        {/* Blog Posts */}
-        <motion.div variants={containerVariants} className="space-y-6">
-          {blogPosts.map((post) => (
-            <motion.article
-              key={post.id}
-              variants={itemVariants}
-              whileHover={{ x: 8 }}
-              className="group p-6 rounded-xl border border-foreground/10 bg-foreground/2 hover:bg-foreground/5 transition-all duration-300"
-            >
-              <Link href={`/blog/${post.slug}`} className="block">
-                <div className="flex items-start justify-between mb-4">
-                  <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-3">
-                      <span className="text-xs px-2 py-1 rounded-full bg-foreground/10 text-foreground/70 font-medium">
-                        {post.category}
-                      </span>
-                      <span className="text-xs text-foreground/60">
-                        {post.readTime}
-                      </span>
+        <motion.section variants={itemVariants} className="mb-20">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {blogPosts.map((post) => (
+              <motion.article
+                key={post.id}
+                variants={itemVariants}
+                whileHover={{ y: -6 }}
+                className="group"
+              >
+                <Link href={`/blog/${post.slug}`} className="block">
+                  <div className="relative overflow-hidden rounded-xl border border-foreground/10 bg-foreground/3">
+                    <div className="relative h-72 w-full overflow-hidden">
+                      <Image
+                        src={post.image}
+                        alt={post.title}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+
+                      <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/35 to-black/10 transition-opacity duration-300" />
+
+                      <div className="absolute left-4 top-4">
+                        <span className="rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-medium text-white backdrop-blur-md">
+                          {post.category}
+                        </span>
+                      </div>
+
+                      <div className="absolute inset-x-0 bottom-0 p-5">
+                        <div className="translate-y-6 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                          <div className="mb-3 flex items-center gap-4 text-xs text-white/80">
+                            <span className="inline-flex items-center gap-2">
+                              <FaCalendarAlt size={12} />
+                              {post.date}
+                            </span>
+                            <span className="inline-flex items-center gap-2">
+                              <FaClock size={12} />
+                              {post.readTime}
+                            </span>
+                          </div>
+
+                          <p className="line-clamp-3 text-sm leading-6 text-white/85">
+                            {post.excerpt}
+                          </p>
+
+                          <div className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-white">
+                            Read Article
+                            <FaArrowRight
+                              size={14}
+                              className="transition-transform group-hover:translate-x-1"
+                            />
+                          </div>
+                        </div>
+
+                        <div className="transition-all duration-300 group-hover:opacity-0">
+                          <h2 className="line-clamp-2 text-xl font-semibold leading-snug text-white">
+                            {post.title}
+                          </h2>
+                        </div>
+                      </div>
                     </div>
-                    <h2 className="text-xl font-semibold text-foreground group-hover:text-foreground/80 transition-colors mb-2">
-                      {post.title}
-                    </h2>
                   </div>
-                  <FaArrowRight
-                    size={20}
-                    className="text-foreground/40 group-hover:text-foreground transition-colors ml-4 shrink-0"
-                  />
-                </div>
+                </Link>
+              </motion.article>
+            ))}
+          </div>
+        </motion.section>
 
-                <p className="text-foreground/70 mb-4 leading-relaxed">
-                  {post.excerpt}
-                </p>
-
-                <div className="flex items-center gap-2 text-sm text-foreground/50">
-                  <FaCalendar size={16} />
-                  {post.date}
-                </div>
-              </Link>
-            </motion.article>
-          ))}
-        </motion.div>
-
-        {/* Footer Section */}
         <motion.div
           variants={itemVariants}
-          className="border-t border-foreground/10 pt-12 mt-12"
+          className="flex flex-wrap items-center gap-5 border-t border-foreground/10 pt-8"
         >
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between">
-            <div className="mb-8 sm:mb-0">
-              <p className="text-foreground/60 mb-4">Let's connect</p>
-              <div className="flex gap-4">
-                {socialLinks.map((social, idx) => {
-                  const Icon = social.icon
-                  return (
-                    <motion.a
-                      key={social.label}
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={social.label}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.8 + idx * 0.05 }}
-                      whileHover={{ scale: 1.2, y: -2 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="text-foreground/60 hover:text-foreground transition-colors"
-                    >
-                      <Icon size={24} />
-                    </motion.a>
-                  )
-                })}
-              </div>
-            </div>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1.2 }}
-              className="text-sm text-foreground/50"
-            >
-              <p>© 2026 Adeneken Wonderful. All rights reserved.</p>
-            </motion.div>
-          </div>
+          {socialLinks.map((social) => {
+            const Icon = social.icon
+
+            return (
+              <motion.a
+                key={social.label}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={social.label}
+                whileHover={{ scale: 1.12, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                className="text-foreground/60 transition-colors hover:text-foreground"
+              >
+                <Icon size={22} />
+              </motion.a>
+            )
+          })}
         </motion.div>
-      </motion.div>
+      </motion.section>
     </div>
   )
 }
