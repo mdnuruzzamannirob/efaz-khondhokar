@@ -1,8 +1,14 @@
 'use client'
 
-import { Footer } from '@/components/Footer'
 import { motion } from 'framer-motion'
-import { FaExternalLinkAlt } from 'react-icons/fa'
+import {
+  FaEnvelope,
+  FaExternalLinkAlt,
+  FaGithub,
+  FaInstagram,
+  FaLinkedin,
+  FaTwitter,
+} from 'react-icons/fa'
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -123,6 +129,14 @@ const lens = {
     'This is an intensive, curation of the photochromic lenses that standout and the ones that i personally love. NOTE this is just by preference actualy.',
   link: 'Visit Page',
 }
+
+const socialLinks = [
+  { icon: FaTwitter, href: 'https://twitter.com', label: 'Twitter' },
+  { icon: FaEnvelope, href: 'mailto:contact@example.com', label: 'Email' },
+  { icon: FaLinkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
+  { icon: FaGithub, href: 'https://github.com', label: 'GitHub' },
+  { icon: FaInstagram, href: 'https://instagram.com', label: 'Instagram' },
+]
 
 export default function About() {
   return (
@@ -315,9 +329,46 @@ export default function About() {
           </a>
         </motion.div>
 
-        {/* Footer */}
-        <motion.div variants={itemVariants}>
-          <Footer />
+        {/* Footer Section */}
+        <motion.div
+          variants={itemVariants}
+          className="border-t border-foreground/10 pt-12 mt-12"
+        >
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between">
+            <div className="mb-8 sm:mb-0">
+              <p className="text-foreground/60 mb-4">Let's connect</p>
+              <div className="flex gap-4">
+                {socialLinks.map((social, idx) => {
+                  const Icon = social.icon
+                  return (
+                    <motion.a
+                      key={social.label}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={social.label}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.8 + idx * 0.05 }}
+                      whileHover={{ scale: 1.2, y: -2 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="text-foreground/60 hover:text-foreground transition-colors"
+                    >
+                      <Icon size={24} />
+                    </motion.a>
+                  )
+                })}
+              </div>
+            </div>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.2 }}
+              className="text-sm text-foreground/50"
+            >
+              <p>© 2026 Adeneken Wonderful. All rights reserved.</p>
+            </motion.div>
+          </div>
         </motion.div>
       </motion.div>
     </div>

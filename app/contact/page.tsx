@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import {
   FaEnvelope,
   FaGithub,
+  FaInstagram,
   FaLinkedin,
   FaMapPin,
   FaPhone,
@@ -32,9 +33,11 @@ const contactMethods = [
 ]
 
 const socialLinks = [
+  { icon: FaTwitter, label: 'Twitter', link: 'https://twitter.com' },
+  { icon: FaEnvelope, label: 'Email', link: 'mailto:contact@example.com' },
   { icon: FaLinkedin, label: 'LinkedIn', link: 'https://linkedin.com' },
   { icon: FaGithub, label: 'GitHub', link: 'https://github.com' },
-  { icon: FaTwitter, label: 'Twitter', link: 'https://twitter.com' },
+  { icon: FaInstagram, label: 'Instagram', link: 'https://instagram.com' },
 ]
 
 const containerVariants = {
