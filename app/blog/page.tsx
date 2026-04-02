@@ -3,6 +3,7 @@
 import { motion, type Variants } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useMemo, useState } from 'react'
 import {
   FaArrowRight,
   FaCalendarAlt,
@@ -121,6 +122,18 @@ const itemVariants: Variants = {
 }
 
 export default function Blog() {
+  const [activeCategory, setActiveCategory] = useState('All')
+
+  const categories = useMemo(
+    () => ['All', ...new Set(blogPosts.map((post) => post.category))],
+    [],
+  )
+
+  const filteredPosts = useMemo(() => {
+    if (activeCategory === 'All') return blogPosts
+    return blogPosts.filter((post) => post.category === activeCategory)
+  }, [activeCategory])
+
   return (
     <div className="relative overflow-hidden pt-32 pb-20">
       <motion.section
@@ -129,23 +142,51 @@ export default function Blog() {
         animate="visible"
         className="container-body flex min-h-[calc(100vh-8rem)] flex-col"
       >
+        {/* Title */}
         <motion.div variants={itemVariants} className="mb-4">
           <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl lg:text-6xl">
             Blog.
           </h1>
         </motion.div>
 
+        {/* Intro */}
         <motion.p
           variants={itemVariants}
-          className="mb-14 max-w-2xl leading-8 text-foreground/75"
+          className="mb-10 max-w-2xl leading-8 text-foreground/75"
         >
           Thoughts, experiments, and reflections on web development, design,
           performance, and the tools I enjoy building with.
         </motion.p>
 
+        {/* Category Filter */}
+        <motion.div
+          variants={itemVariants}
+          className="mb-12 flex flex-wrap gap-3"
+        >
+          {categories.map((category) => {
+            const isActive = activeCategory === category
+
+            return (
+              <button
+                key={category}
+                type="button"
+                onClick={() => setActiveCategory(category)}
+                className={`rounded-lg px-4 py-2 text-sm font-medium transition-all ${
+                  isActive
+                    ? 'bg-foreground text-background'
+                    : 'bg-foreground/5 text-foreground/70 hover:bg-foreground/10 hover:text-foreground'
+                }`}
+              >
+                {category}
+              </button>
+            )
+          })}
+        </motion.div>
+
+        {/* Blog Grid */}
         <motion.section variants={itemVariants} className="mb-20">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {blogPosts.map((post) => (
+            {filteredPosts.map((post) => (
               <motion.article
                 key={post.id}
                 variants={itemVariants}
@@ -210,6 +251,7 @@ export default function Blog() {
           </div>
         </motion.section>
 
+        {/* Footer */}
         <motion.div
           variants={itemVariants}
           className="flex flex-wrap items-center gap-5 border-t border-foreground/10 pt-8"
