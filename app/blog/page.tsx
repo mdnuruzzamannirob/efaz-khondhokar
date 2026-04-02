@@ -73,7 +73,7 @@ export default function Blog() {
 
         {/* Blog Grid */}
         <motion.section variants={itemVariants} className="mb-20">
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 ">
             {filteredPosts.map((post) => (
               <motion.article
                 key={post.id}
@@ -83,7 +83,7 @@ export default function Blog() {
               >
                 <Link href={`/blog/${post.slug}`} className="block">
                   <div className="relative overflow-hidden rounded-xl border border-foreground/10 bg-foreground/3">
-                    <div className="relative h-72 w-full overflow-hidden">
+                    <div className="relative h-80 w-full overflow-hidden">
                       <Image
                         src={post.image}
                         alt={post.title}

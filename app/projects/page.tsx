@@ -128,44 +128,38 @@ export default function Projects() {
           ))}
         </motion.div>
 
+        {/* Footer */}
         <motion.div
           variants={itemVariants}
-          className="border-t border-foreground/10 pt-12"
+          className="border-t border-foreground/10 pt-8"
         >
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between">
-            <div className="mb-8 sm:mb-0">
-              <p className="text-foreground/60 mb-4">Let&apos;s connect</p>
-              <div className="flex gap-4">
-                {socialLinks.map((social, idx) => {
-                  const Icon = social.icon
-                  return (
-                    <motion.a
-                      key={social.label}
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={social.label}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.8 + idx * 0.05 }}
-                      whileHover={{ scale: 1.2, y: -2 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="text-foreground/60 hover:text-foreground transition-colors"
-                    >
-                      <Icon size={24} />
-                    </motion.a>
-                  )
-                })}
-              </div>
+          <div className="flex flex-col items-center gap-6">
+            {/* Social Icons */}
+            <div className="flex flex-wrap items-center justify-center gap-5">
+              {socialLinks.map((social) => {
+                const Icon = social.icon
+
+                return (
+                  <motion.a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                    whileHover={{ scale: 1.12, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="text-foreground/60 transition-colors hover:text-foreground"
+                  >
+                    <Icon size={22} />
+                  </motion.a>
+                )
+              })}
             </div>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1.2 }}
-              className="text-sm text-foreground/50"
-            >
-              <p>© 2026 Adeneken Wonderful. All rights reserved.</p>
-            </motion.div>
+
+            {/* Copyright */}
+            <p className="text-sm text-foreground/50 text-center">
+              © 2026 Adeneken Wonderful. All rights reserved.
+            </p>
           </div>
         </motion.div>
       </motion.div>
