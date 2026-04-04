@@ -133,9 +133,9 @@ export default function Contact() {
                   href={method.link}
                   whileHover={{ y: -4 }}
                   whileTap={{ scale: 0.98 }}
-                  className="group rounded-2xl border border-foreground/10 bg-foreground/3 p-6 transition-all duration-300 hover:border-foreground/20 hover:bg-foreground/5"
+                  className="group rounded-xl border border-foreground/10 bg-foreground/3 p-6 transition-all duration-300 hover:border-foreground/20 hover:bg-foreground/5"
                 >
-                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-foreground/10 bg-foreground/5">
+                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl border border-foreground/10 bg-foreground/5">
                     <Icon className="text-lg text-foreground/80" />
                   </div>
 
@@ -155,7 +155,7 @@ export default function Contact() {
         <motion.section variants={itemVariants} className="mb-20">
           <h2 className="mb-10 text-3xl font-bold">Send A Message.</h2>
 
-          <div className="rounded-3xl border border-foreground/10 bg-foreground/2 p-6 sm:p-8">
+          <div className="rounded-xl border border-foreground/10 bg-foreground/2 p-6 sm:p-8">
             <form className="space-y-6" onSubmit={handleSubmit} noValidate>
               <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                 <div className="space-y-2">

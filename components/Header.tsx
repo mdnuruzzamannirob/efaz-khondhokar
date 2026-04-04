@@ -85,7 +85,7 @@ export function Header() {
 
           {/* Drawer */}
           <div className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 md:hidden z-50 w-full max-w-lg flex items-center justify-center p-4">
-            <div className="w-full bg-background border border-border rounded-2xl shadow-2xl animate-in fade-in zoom-in-95 duration-300">
+            <div className="w-full bg-background border border-border rounded-xl shadow-2xl animate-in fade-in zoom-in-95 duration-300">
               {/* Header with Close Button */}
               <div className="flex items-center justify-between p-6 border-b border-border">
                 <h2 className="text-lg font-semibold text-foreground">Menu</h2>
