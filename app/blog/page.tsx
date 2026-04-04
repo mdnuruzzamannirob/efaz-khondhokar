@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { blogPosts } from '@/data/blog'
 import { socialLinks } from '@/data/social-link'
@@ -7,12 +7,7 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useMemo, useState } from 'react'
-import {
-  FaArrowRight,
-  FaCalendarAlt,
-  FaClock,
-  FaExternalLinkAlt,
-} from 'react-icons/fa'
+import { FaCalendarAlt, FaClock, FaExternalLinkAlt } from 'react-icons/fa'
 
 export default function Blog() {
   const [activeCategory, setActiveCategory] = useState('All')
@@ -35,13 +30,12 @@ export default function Blog() {
         animate="visible"
         className="container-body flex min-h-[calc(100vh-8rem)] flex-col"
       >
-        {/* Title */}
         <motion.div variants={itemVariants} className="mb-4">
           <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl lg:text-6xl">
             Blog.
           </h1>
         </motion.div>
-        {/* Intro */}
+
         <motion.p
           variants={itemVariants}
           className="mb-10 max-w-2xl leading-8 text-foreground/75"
@@ -49,33 +43,32 @@ export default function Blog() {
           Thoughts, experiments, and reflections on web development, design,
           performance, and the tools I enjoy building with.
         </motion.p>
-        {/* Category Filter */}
+
         <motion.div
           variants={itemVariants}
           className="mb-12 flex flex-wrap gap-3"
         >
           {categories.map((category) => {
             const isActive = activeCategory === category
+            const btnClass = isActive
+              ? 'bg-foreground text-background'
+              : 'bg-foreground/5 text-foreground/70 hover:bg-foreground/10 hover:text-foreground'
 
             return (
               <button
                 key={category}
                 type="button"
                 onClick={() => setActiveCategory(category)}
-                className={`rounded-lg px-4 py-2 whitespace-nowrap text-sm font-medium transition-all ${
-                  isActive
-                    ? 'bg-foreground text-background'
-                    : 'bg-foreground/5 text-foreground/70 hover:bg-foreground/10 hover:text-foreground'
-                }`}
+                className={`rounded-lg px-4 py-2 whitespace-nowrap text-sm font-medium transition-all ${btnClass}`}
               >
                 {category}
               </button>
             )
           })}
         </motion.div>
-        {/* Blog Grid */}
+
         <motion.section variants={itemVariants} className="mb-20">
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 ">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             {filteredPosts.map((post) => (
               <motion.article
                 key={post.id}
@@ -83,7 +76,12 @@ export default function Blog() {
                 whileHover={{ y: -6 }}
                 className="group"
               >
-                <Link href={`/blog/${post.slug}`} className="block">
+                <a
+                  href={post.externalLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block"
+                >
                   <div className="relative overflow-hidden rounded-xl border border-foreground/10 bg-foreground/3">
                     <div className="relative h-80 w-full overflow-hidden">
                       <Image
@@ -119,8 +117,8 @@ export default function Blog() {
                           </p>
 
                           <div className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-white">
-                            Read Article
-                            <FaArrowRight
+                            Visit Article
+                            <FaExternalLinkAlt
                               size={14}
                               className="transition-transform group-hover:translate-x-1"
                             />
@@ -135,12 +133,12 @@ export default function Blog() {
                       </div>
                     </div>
                   </div>
-                </Link>
+                </a>
               </motion.article>
             ))}
           </div>
         </motion.section>
-        {/* Footer Links */}{' '}
+
         <motion.div variants={itemVariants} className="mb-14">
           <Link
             href="/contact"
@@ -150,6 +148,7 @@ export default function Blog() {
             <FaExternalLinkAlt className="transition-transform group-hover:translate-x-1" />
           </Link>
         </motion.div>
+
         <motion.div
           variants={itemVariants}
           className="flex flex-wrap items-center gap-5 pt-8"
@@ -168,7 +167,7 @@ export default function Blog() {
                 whileTap={{ scale: 0.95 }}
                 className="text-foreground/60 transition-colors hover:text-foreground"
               >
-                <Icon size={22} />
+                <Icon size={20} />
               </motion.a>
             )
           })}

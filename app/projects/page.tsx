@@ -127,10 +127,10 @@ export default function Projects() {
         {/* Footer Links */}{' '}
         <motion.div variants={itemVariants} className="mb-14">
           <Link
-            href="/contact"
+            href="/blog"
             className="group inline-flex items-center gap-2 text-lg font-semibold text-foreground transition-colors hover:text-foreground/80"
           >
-            Can I help you?
+            Read My Blog
             <FaExternalLinkAlt className="transition-transform group-hover:translate-x-1" />
           </Link>
         </motion.div>
