@@ -33,23 +33,23 @@ export function Header() {
         <Link href="/">efaz.dev</Link>
       </div>
 
-      {/* Nav Items - Desktop */}
-      <div className="hidden md:flex items-center gap-6">
-        {navItems.map((item) => (
-          <Link
-            key={item.href}
-            href={item.href}
-            className={`nav-link text-sm px-2 relative transition-all duration-300 ${
-              isActive(item.href) ? 'active' : ''
-            }`}
-          >
-            {item.label}
-          </Link>
-        ))}
-      </div>
-
-      {/* Right Side - Theme Toggle & Mobile Menu */}
+      {/* Right Side - Nav Items, Theme Toggle & Mobile Menu */}
       <div className="flex items-center gap-4">
+        {/* Nav Items - Desktop */}
+        <div className="hidden md:flex items-center gap-6">
+          {navItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={`nav-link text-sm px-2 relative transition-all duration-300 ${
+                isActive(item.href) ? 'active' : ''
+              }`}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </div>
+
         {/* Theme Toggle */}
         <button
           onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
