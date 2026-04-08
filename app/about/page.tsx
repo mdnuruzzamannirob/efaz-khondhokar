@@ -1,14 +1,23 @@
 'use client'
 
-import { lens, playlists, reads, skills } from '@/data/about'
+import {
+  education,
+  experience,
+  lens,
+  playlists,
+  reads,
+  skills,
+} from '@/data/about'
 import { socialLinks } from '@/data/social-link'
 import { containerVariants, itemVariants } from '@/lib/constants'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import {
   FaBookOpen,
+  FaBriefcase,
   FaCalendarAlt,
   FaExternalLinkAlt,
+  FaGraduationCap,
   FaSpotify,
 } from 'react-icons/fa'
 
@@ -82,6 +91,72 @@ export default function About() {
                 </motion.div>
               )
             })}
+          </div>
+        </motion.section>
+        <motion.section variants={itemVariants} className="mb-20">
+          <h2 className="mb-12 text-3xl font-bold">My Experience.</h2>
+
+          <div>
+            {experience.map((exp, idx) => (
+              <motion.div key={exp.title} variants={itemVariants}>
+                <TimelineNode isLast={idx === experience.length - 1}>
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <div className="flex items-center gap-3">
+                        <FaBriefcase className="text-foreground/60" />
+                        <h3 className="text-xl font-semibold">{exp.title}</h3>
+                      </div>
+
+                      <p className="mt-2 text-sm text-foreground/60">
+                        {exp.company}
+                      </p>
+                    </div>
+
+                    <div className="inline-flex items-center gap-2 whitespace-nowrap text-sm font-semibold text-foreground/60">
+                      <FaCalendarAlt size={14} />
+                      <span>{exp.period}</span>
+                    </div>
+                  </div>
+
+                  <p className="mt-3 max-w-2xl leading-relaxed text-foreground/70">
+                    {exp.description}
+                  </p>
+                </TimelineNode>
+              </motion.div>
+            ))}
+          </div>
+        </motion.section>
+        <motion.section variants={itemVariants} className="mb-20">
+          <h2 className="mb-12 text-3xl font-bold">My Education.</h2>
+
+          <div>
+            {education.map((edu, idx) => (
+              <motion.div key={edu.title} variants={itemVariants}>
+                <TimelineNode isLast={idx === education.length - 1}>
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <div className="flex items-center gap-3">
+                        <FaGraduationCap className="text-foreground/60" />
+                        <h3 className="text-xl font-semibold">{edu.title}</h3>
+                      </div>
+
+                      <p className="mt-2 text-sm text-foreground/60">
+                        {edu.institution}
+                      </p>
+                    </div>
+
+                    <div className="inline-flex items-center gap-2 whitespace-nowrap text-sm font-semibold text-foreground/60">
+                      <FaCalendarAlt size={14} />
+                      <span>{edu.period}</span>
+                    </div>
+                  </div>
+
+                  <p className="mt-3 max-w-2xl leading-relaxed text-foreground/70">
+                    {edu.description}
+                  </p>
+                </TimelineNode>
+              </motion.div>
+            ))}
           </div>
         </motion.section>
         <motion.section variants={itemVariants} className="mb-20">
@@ -182,6 +257,15 @@ export default function About() {
           </TimelineNode>
         </motion.section>
         {/* Footer Links */}{' '}
+        <motion.div variants={itemVariants} className="mb-14">
+          <Link
+            href="/tech-stack"
+            className="group inline-flex items-center gap-2 text-lg font-semibold text-foreground transition-colors hover:text-foreground/80"
+          >
+            Explore My Tech Stack
+            <FaExternalLinkAlt className="transition-transform group-hover:translate-x-1" />
+          </Link>
+        </motion.div>
         <motion.div variants={itemVariants} className="mb-14">
           <Link
             href="/projects"

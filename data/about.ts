@@ -1,4 +1,10 @@
-import { FaCode, FaLayerGroup, FaPalette } from 'react-icons/fa'
+import {
+  FaBriefcase,
+  FaCode,
+  FaGraduationCap,
+  FaLayerGroup,
+  FaPalette,
+} from 'react-icons/fa'
 
 export const skills = [
   {
@@ -24,6 +30,115 @@ export const skills = [
       'Despite not fitting the typical designer stereotype, my exceptional visual abilities enable me to excel as a presenter, effectively conveying design concepts to stakeholders and design teams. I possess a remarkable aptitude for conceptualization, allowing me to envision and bring forth stunning creations.',
     link: 'View Dribbble',
     href: '#',
+  },
+]
+
+export const experience = [
+  {
+    title: 'Senior Full Stack Developer',
+    company: 'Tech Innovations Inc.',
+    period: '2022 - Present',
+    icon: FaBriefcase,
+    description:
+      'Leading the development of scalable web applications using modern tech stack. Mentoring junior developers and architecting solutions for complex problems.',
+  },
+  {
+    title: 'Full Stack Developer',
+    company: 'Digital Solutions Ltd.',
+    period: '2020 - 2022',
+    icon: FaBriefcase,
+    description:
+      'Developed and maintained multiple production applications. Collaborated with cross-functional teams to deliver high-quality solutions.',
+  },
+  {
+    title: 'Junior Web Developer',
+    company: 'StartUp Hub',
+    period: '2019 - 2020',
+    icon: FaBriefcase,
+    description:
+      'Built responsive web applications using React and Node.js. Participated in code reviews and learned best practices.',
+  },
+]
+
+export const education = [
+  {
+    title: 'Bachelor of Science in Computer Science',
+    institution: 'State University',
+    period: '2017 - 2021',
+    icon: FaGraduationCap,
+    description:
+      'Specialized in Software Engineering and Web Development. Graduated with honors.',
+  },
+  {
+    title: 'Full Stack Web Development Bootcamp',
+    institution: 'Code Academy',
+    period: '2018 - 2019',
+    icon: FaGraduationCap,
+    description:
+      'Intensive 12-week program covering frontend and backend technologies, database design, and deployment.',
+  },
+]
+
+export const techStack = [
+  {
+    category: 'Frontend',
+    skills: [
+      'React.js',
+      'Next.js',
+      'TypeScript',
+      'Tailwind CSS',
+      'Framer Motion',
+      'HTML5',
+      'CSS3',
+      'JavaScript ES6+',
+    ],
+  },
+  {
+    category: 'Backend',
+    skills: [
+      'Node.js',
+      'Express.js',
+      'Python',
+      'FastAPI',
+      'RESTful APIs',
+      'GraphQL',
+      'JWT Authentication',
+    ],
+  },
+  {
+    category: 'Database',
+    skills: [
+      'PostgreSQL',
+      'MongoDB',
+      'Firebase',
+      'Prisma ORM',
+      'SQL',
+      'Database Design',
+    ],
+  },
+  {
+    category: 'DevOps & Tools',
+    skills: [
+      'Git & GitHub',
+      'Docker',
+      'AWS',
+      'Vercel',
+      'CI/CD Pipelines',
+      'Linux',
+      'VS Code',
+      'Webpack',
+    ],
+  },
+  {
+    category: 'Other Skills',
+    skills: [
+      'Problem Solving',
+      'System Design',
+      'Code Review',
+      'Agile Methodology',
+      'Team Leadership',
+      'Technical Documentation',
+    ],
   },
 ]
 
