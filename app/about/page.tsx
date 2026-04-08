@@ -46,12 +46,19 @@ function TimelineNode({
 
 export default function About() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative overflow-hidden">
+      {/* Large Background Page Title - Bottom Left */}
+      <div className="fixed left-0 bottom-0 pointer-events-none z-0 overflow-hidden">
+        <h1 className="text-9xl sm:text-[12rem] md:text-[14rem] lg:text-[16rem] font-bold tracking-tighter text-foreground/3 whitespace-nowrap -ml-20">
+          About Me
+        </h1>
+      </div>
+
       <motion.section
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="container-body flex flex-col pt-32 pb-20"
+        className="container-body flex flex-col pt-32 pb-20 relative z-10"
       >
         <motion.h1
           variants={itemVariants}
@@ -263,15 +270,6 @@ export default function About() {
             className="group inline-flex items-center gap-2 text-lg font-semibold text-foreground transition-colors hover:text-foreground/80"
           >
             Explore My Tech Stack
-            <FaExternalLinkAlt className="transition-transform group-hover:translate-x-1" />
-          </Link>
-        </motion.div>
-        <motion.div variants={itemVariants} className="mb-14">
-          <Link
-            href="/projects"
-            className="group inline-flex items-center gap-2 text-lg font-semibold text-foreground transition-colors hover:text-foreground/80"
-          >
-            Lets Continue To Projects
             <FaExternalLinkAlt className="transition-transform group-hover:translate-x-1" />
           </Link>
         </motion.div>

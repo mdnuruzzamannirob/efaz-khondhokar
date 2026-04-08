@@ -98,11 +98,18 @@ export default function Contact() {
 
   return (
     <div className="relative overflow-hidden pt-32 pb-20">
+      {/* Large Background Page Title - Bottom Left */}
+      <div className="fixed left-0 bottom-0 pointer-events-none z-0 overflow-hidden">
+        <h1 className="text-9xl sm:text-[12rem] md:text-[14rem] lg:text-[16rem] font-bold tracking-tighter text-foreground/3 whitespace-nowrap -ml-20">
+          Contact
+        </h1>
+      </div>
+
       <motion.section
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="flex-1 container-body flex flex-col"
+        className="flex-1 container-body flex flex-col relative z-10"
       >
         {/* Title */}
         <motion.div variants={itemVariants} className="mb-4">

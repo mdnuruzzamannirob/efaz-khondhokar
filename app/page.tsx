@@ -10,6 +10,13 @@ import { BsArrowRight } from 'react-icons/bs'
 export default function Home() {
   return (
     <div className="relative overflow-hidden pt-32 pb-10">
+      {/* Large Background Page Title - Bottom Left */}
+      <div className="fixed left-0 bottom-0 pointer-events-none z-0 overflow-hidden">
+        <h1 className="text-9xl sm:text-[12rem] md:text-[14rem] lg:text-[16rem] font-bold tracking-tighter text-foreground/3 whitespace-nowrap -ml-20">
+          Welcome
+        </h1>
+      </div>
+
       <motion.section
         variants={containerVariants}
         initial="hidden"
